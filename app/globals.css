@@ -3,13 +3,13 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --brand-orange: #FF7D0C;
+  --brand-orange: #ff7d0c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-color var(--brand-orange)
+  --color-brand-color: var(--brand-orange);
   --font-sans: var(--font-dm-sans);
   --font-display: var(--font-barlow);
 }
