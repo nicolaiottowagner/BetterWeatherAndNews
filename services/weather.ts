@@ -1,5 +1,6 @@
 import { err, ok, type Result } from "./result";
 import type { WeatherNow } from "./types";
+import { describeWeatherCode } from "./weather-codes";
 
 const AARHUS = { latitude: 56.1567, longitude: 10.2108 } as const;
 const TIMEOUT_MS = 5000;
@@ -34,11 +35,13 @@ function buildUrl(): string {
 
 function toWeatherNow(raw: OpenMeteoResponse): WeatherNow {
   const c = raw.current;
+  const condition = describeWeatherCode(c.weather_code);
   return {
     temperatureC: c.temperature_2m,
     feelsLikeC: c.apparent_temperature,
     windSpeedKmh: c.wind_speed_10m,
-    condition: String(c.weather_code),
+    condition: condition.label,
+    icon: condition.icon,
     isDay: c.is_day === 1,
     observedAt: c.time,
   };
