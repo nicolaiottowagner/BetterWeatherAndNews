@@ -9,3 +9,13 @@ export type WeatherNow = {
   isDay: boolean;
   observedAt: string;
 };
+
+export type NewsHeadline = {
+  id: string;
+  title: string;
+  description: string | null;
+  url: string;
+  imageUrl: string | null;
+  source: string;
+  publishedAt: string;
+};
