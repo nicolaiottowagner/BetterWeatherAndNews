@@ -16,15 +16,13 @@ type NewsdataArticle = {
   pubDate: string;
 };
 
-type NewsdataResponse = {
-  results: NewsdataArticle[];
-};
-
+// Checked on https://newsdata.io/api/1/latest?apikey=…&country=dk&language=da
 function buildUrl(query?: string): string {
   const params = new URLSearchParams({
     apikey: newsApiKey,
     country: "dk",
     language: "da",
+    removeduplicate: "1",
   });
   if (query) params.set("q", query);
   return `https://newsdata.io/api/1/latest?${params}`;
@@ -50,7 +48,7 @@ function extractArticles(value: unknown): NewsdataArticle[] | null {
   const results = (value as { results?: unknown }).results;
   if (!Array.isArray(results)) return null;
 
-  return results.filter(isNewsdataArticle);
+  return results.filter(isNewsdataArticle); // One malformed article should not blank the feed.
 }
 
 function toIsoDate(pubDate: string): string | null {
@@ -73,8 +71,25 @@ function toHeadline(article: NewsdataArticle): NewsHeadline | null {
   };
 }
 
+// removeduplicate only catches the provider's own duplicates, not cross-outlet reprints.
+function dedupeByTitle(headlines: NewsHeadline[]): NewsHeadline[] {
+  const seen = new Set<string>();
+  return headlines.filter((h) => {
+    const key = h.title.trim().toLowerCase();
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
 function toHeadlines(articles: NewsdataArticle[]): NewsHeadline[] {
-  return articles.flatMap((a) => toHeadline(a) ?? []).slice(0, MAX_HEADLINES);
+  const all = dedupeByTitle(articles.flatMap((a) => toHeadline(a) ?? []));
+
+  // Prefer articles with a description, but never drop below 5 to enforce it.
+  const described = all.filter((h) => h.description !== null);
+  const rest = all.filter((h) => h.description === null);
+
+  return [...described, ...rest].slice(0, MAX_HEADLINES);
 }
 
 export async function getNews(query?: string): Promise<Result<NewsHeadline[]>> {
@@ -98,7 +113,8 @@ export async function getNews(query?: string): Promise<Result<NewsHeadline[]>> {
       return err("News is unavailable right now.");
     }
 
-    const raw: unknown = await res.json();
+    const raw: unknown = await res.json(); // unknown, not a cast - forces guard to run.
+    console.dir(raw, { depth: null });
     const articles = extractArticles(raw);
 
     if (articles === null) {
