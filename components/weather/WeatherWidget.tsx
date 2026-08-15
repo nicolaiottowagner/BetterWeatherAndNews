@@ -1,5 +1,4 @@
 import { getWeather } from "@/services/weather";
-import { WeatherIcon } from "./WeatherIcon";
 
 export async function WeatherWidget() {
   const weather = await getWeather();
@@ -8,16 +7,27 @@ export async function WeatherWidget() {
     return <p>{weather.error}</p>;
   }
 
+  const { temperatureC, feelsLikeC, windSpeedKmh, condition, observedAt } =
+    weather.data;
+  const observedTime = weather.data.observedAt.slice(11, 16);
+
   return (
-    <pre>
-      {JSON.stringify(weather.data, null, 2)}
-      <pre>
-        <WeatherIcon
-          name={weather.data.icon}
-          isDay={weather.data.isDay}
-          className="size-16"
-        />
-      </pre>
-    </pre>
+    <div>
+      <p>{Math.round(temperatureC)} C°</p>
+      <p>{condition}</p>
+      <dl>
+        <div>
+          <dt>Feels like</dt>
+          <dd>{Math.round(feelsLikeC)} C°</dd>
+        </div>
+        <div>
+          <dt>Wind</dt>
+          <dd>{Math.round(windSpeedKmh)} km/h</dd>
+        </div>
+      </dl>
+      <p>
+        Aarhus <time dateTime={observedAt}>{observedTime}</time>
+      </p>
+    </div>
   );
 }
