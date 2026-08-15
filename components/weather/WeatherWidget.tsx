@@ -24,7 +24,7 @@ export async function WeatherWidget() {
     .join(", ");
 
   return (
-    <div className="bg-brand-lightorange w-sm rounded-2xl border border-brand-color/30 px-4 pb-4 shadow-lg shadow-brand-color/70 sm:p-6 md:w-md md:pt-2">
+    <div className="bg-lighorange-color rounded-2xl border border-brand-color/30 px-4 pb-4 shadow-lg shadow-brand-color/70 sm:p-6 md:pt-2">
       <p className="pt-2 font-display text-lg">
         Aarhus · <time dateTime={observedAt}>{observedTime}</time>
       </p>
@@ -32,13 +32,13 @@ export async function WeatherWidget() {
         <WeatherIcon
           name={weather.data.icon}
           isDay={weather.data.isDay}
-          className="size-4 shrink-0 text-brand-color md:size-4"
+          className="size-4 shrink-0 text-brand-color"
         />{" "}
         <p className="text-sm opacity-70">{condition}</p>
       </div>
-      <div className="flex flex-row items-start justify-start gap-12 pt-6 md:items-center md:justify-between">
-        <div>
-          <p className="font-display text-6xl tabular-nums sm:text-6xl">
+      <div className="flex items-start justify-between gap-4 pt-6 md:items-center">
+        <div className="min-w-0">
+          <p className="font-display text-6xl tabular-nums">
             {Math.round(temperatureC)}°C
           </p>
         </div>
@@ -49,7 +49,7 @@ export async function WeatherWidget() {
         />
       </div>
 
-      <dl className="mt-4 grid grid-cols-2 gap-3 sm:flex sm:gap-8">
+      <dl className="mt-4 grid grid-cols-2">
         <div>
           <dt className="text-sm opacity-70">Feels like</dt>
           <dd className="tabular-nums">{Math.round(feelsLikeC)}°</dd>

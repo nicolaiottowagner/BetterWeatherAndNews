@@ -11,10 +11,10 @@ export default function Home() {
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-brand-color/15 to-transparent lg:px-12"
+          className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-brand-color/15 to-transparent"
         />
 
-        <div className="mx-auto w-full">
+        <div className="mx-auto w-full md:px-8 lg:px-12">
           <p className="mb-4 font-display text-xs tracking-widest text-brand-color uppercase lg:text-base">
             by a Developer · for Staying up-to-date
           </p>
@@ -34,7 +34,7 @@ export default function Home() {
               </p>
             </header>
 
-            <div className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:basis-2/5">
+            <div className="mx-auto w-full max-w-md lg:mx-0 lg:w-xl lg:max-w-none">
               <Suspense fallback={<p>Loading weather…</p>}>
                 <WeatherWidget />
               </Suspense>
@@ -44,7 +44,7 @@ export default function Home() {
 
         <a
           href="#news"
-          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70"
+          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70 lg:hidden"
         >
           Today&rsquo;s headlines
           <ChevronDown
