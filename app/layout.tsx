@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Barlow, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/ui/Header";
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
+import { ThemeProvider } from "next-themes";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -26,9 +26,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    // suppressHydrationWarning is required: next-themes sets the class on <html>
-    // via a blocking script before React hydrates, which is how the flash of
-    // wrong theme is avoided. It only suppresses one level deep.
     <html
       lang="da"
       suppressHydrationWarning
