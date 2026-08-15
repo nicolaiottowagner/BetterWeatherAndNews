@@ -2,10 +2,16 @@ import { Suspense } from "react";
 import { WeatherWidget } from "@/components/weather/WeatherWidget";
 import { WeatherSkeleton } from "@/components/weather/WeatherSkeleton";
 import { NewsFeed } from "@/components/news/NewsFeed";
+import { NewsSearch } from "@/components/news/NewsSearch";
 import { NewsSkeleton } from "@/components/news/NewsSkeleton";
 import { ChevronDown } from "lucide-react";
 
-export default function Home() {
+export default async function Home({ searchParams }: PageProps<"/">) {
+  const params = await searchParams;
+
+  const query =
+    typeof params.q === "string" ? params.q.trim() || undefined : undefined;
+
   return (
     <main>
       <section
@@ -80,9 +86,13 @@ export default function Home() {
             </p>
           </article>
 
+          <div className="mb-8 self-start sm:mb-10">
+            <NewsSearch defaultQuery={query} />
+          </div>
+
           <div className="border-t border-b border-brand-color/60 py-6 sm:py-8">
-            <Suspense fallback={<NewsSkeleton />}>
-              <NewsFeed />
+            <Suspense key={query} fallback={<NewsSkeleton />}>
+              <NewsFeed query={query} />
             </Suspense>
           </div>
         </section>

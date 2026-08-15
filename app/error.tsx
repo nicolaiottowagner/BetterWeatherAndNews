@@ -1,11 +1,5 @@
 "use client";
 
-// Must be a Client Component — Next passes `reset`, a callback that re-renders
-// the segment. Unlike the panel-level ErrorState, a retry here is real: it
-// re-runs the render rather than re-reading a cached fetch.
-//
-// This only fires for something thrown outside the two Result<T> boundaries.
-// A failing weather or news request is handled in-panel and never reaches here.
 export default function Error({
   error,
   reset,
@@ -23,8 +17,6 @@ export default function Error({
         formentlig et midlertidigt problem hos en af vores datakilder.
       </p>
 
-      {/* digest is the only detail worth surfacing: it lets a developer find
-          the matching server log without exposing the message or the stack. */}
       {error.digest && (
         <p className="mt-2 text-xs opacity-50">Fejl-ID: {error.digest}</p>
       )}

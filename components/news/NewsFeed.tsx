@@ -3,19 +3,17 @@ import { hasNewsKey } from "@/services/env";
 import { getNews } from "@/services/news";
 import { NewsCard } from "./NewsCard";
 
-export async function NewsFeed() {
-  const news = await getNews();
+export async function NewsFeed({ query }: { query?: string }) {
+  const news = await getNews(query);
 
   if (!news.ok) {
     return <ErrorState message={news.error} />;
   }
 
-  // Distinct from the error path: the request worked, there is just nothing to
-  // show. Phase 5's keyword search is what makes this reachable in practice.
   if (news.data.length === 0) {
     return (
       <p className="rounded-2xl border border-foreground/20 p-4 text-sm">
-        Ingen overskrifter lige nu.
+        Ingen nyhedsartikler.
       </p>
     );
   }
@@ -28,8 +26,6 @@ export async function NewsFeed() {
         </p>
       )}
 
-      {/* auto-rows-fr keeps every row the same height, so a headline with no
-          description does not produce a shorter card than its neighbours. */}
       <ul className="mt-4 grid auto-rows-fr gap-4 lg:grid-cols-2">
         {news.data.map((headline) => (
           <li key={headline.id}>
