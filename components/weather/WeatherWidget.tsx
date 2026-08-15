@@ -25,7 +25,7 @@ export async function WeatherWidget() {
     .join(", ");
 
   return (
-    <div className="rounded-2xl border border-brand-color/30 bg-lightorange-color px-4 pb-4 shadow-lg shadow-brand-color/70 sm:p-6 md:pt-2">
+    <div className="rounded-2xl border border-brand-color/30 bg-lightorange-color px-4 pb-4 shadow-lg shadow-brand-color/70 transition-transform duration-300 ease-out sm:p-6 md:pt-2 motion-safe:pointer-fine:hover:-translate-y-1">
       <p className="pt-2 font-display text-lg">
         Aarhus · <time dateTime={observedAt}>{observedTime}</time>
       </p>

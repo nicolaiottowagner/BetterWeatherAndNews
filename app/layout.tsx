@@ -29,7 +29,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="da"
       suppressHydrationWarning
-      className={`${dmSans.variable} ${barlow.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${barlow.variable} h-full antialiased motion-safe:scroll-smooth`}
     >
       <body className="flex min-h-full flex-col">
         <ThemeProvider
