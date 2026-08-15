@@ -41,7 +41,8 @@ export default async function Home({ searchParams }: PageProps<"/">) {
                 <p className="pb-4 text-pretty opacity-70">
                   Før du starter din dag ved din kontorplads hos Better
                   Developers, er du nødt til at vide, hvilket vejr du går glip
-                  af at være ude i + at tjekke de nyeste nyheder i Danmark.
+                  af at være ude i, samtidig med at tjekke de nyeste nyheder i
+                  Danmark.
                 </p>
 
                 <p className="text-lg text-brand-color md:text-2xl">
