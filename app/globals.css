@@ -4,12 +4,14 @@
   --background: #ffffff;
   --foreground: #171717;
   --brand-orange: #ff7d0c;
+  --brand-lightorange: #ffd8b5;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-color: var(--brand-orange);
+  --color-lighorange-color: var(--brand-lightorange);
   --font-sans: var(--font-dm-sans);
   --font-display: var(--font-barlow);
 }
