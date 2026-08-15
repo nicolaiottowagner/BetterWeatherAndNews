@@ -23,18 +23,18 @@ export default function Home() {
             <header className="lg:basis-4/5">
               <h1
                 id="hero-heading"
-                className="font-display text-4xl leading-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl"
+                className="font-display text-4xl leading-tight text-balance uppercase sm:text-5xl md:text-6xl lg:text-7xl"
               >
                 Better Weather and News
               </h1>
-              <div className="mt-4 max-w-prose sm:text-lg md:text-xl">
+              <div className="mt-4 max-w-prose text-sm sm:text-lg md:text-xl">
                 <p className="pb-4 text-pretty opacity-70">
                   Før du starter din dag ved din kontorplads hos Better
                   Developers, er du nødt til at vide, hvilket vejr du går glip
                   af at være ude i + at tjekke de nyeste nyheder i Danmark.
                 </p>
 
-                <p className="text-brand-color uppercase">
+                <p className="text-lg text-brand-color md:text-2xl">
                   Stay sharp · stay up-to-date.
                 </p>
               </div>
@@ -50,7 +50,7 @@ export default function Home() {
 
         <a
           href="#news"
-          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70 motion-safe:animate-[bounce_2s_ease-in-out_infinite]"
+          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70 motion-safe:animate-[bounce_2s_ease-in-out_infinite] lg:absolute lg:inset-x-0 lg:bottom-8 lg:mt-0 lg:pt-0"
         >
           Tjek dagens overskrifter i DK
           <ChevronDown className="size-4" aria-hidden />
@@ -66,7 +66,7 @@ export default function Home() {
           <article className="mx-auto mb-8 pt-10 text-center sm:mb-10 md:pt-16">
             <h2
               id="news-heading"
-              className="font-display text-2xl text-balance sm:text-3xl md:text-5xl"
+              className="font-display text-2xl text-balance uppercase sm:text-3xl md:text-5xl"
             >
               Dagens nyheder – hold dig opdateret
             </h2>
