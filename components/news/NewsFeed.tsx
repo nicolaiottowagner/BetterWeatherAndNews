@@ -9,14 +9,14 @@ export async function NewsFeed() {
     return <p>{news.error}</p>;
   }
   if (news.data.length === 0) {
-    return <p>No headlines right now.</p>;
+    return <p>Ingen overskrifter lige nu.</p>;
   }
 
   return (
     <>
       {!hasNewsKey && (
         <p className="mt-4 inline-block rounded-full border border-brand-color/40 px-3 py-1 text-xs tracking-widest text-brand-color uppercase">
-          Sample data — no API key configured
+          Eksempeldata – ingen API-nøgle
         </p>
       )}
 

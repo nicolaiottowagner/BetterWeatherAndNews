@@ -41,7 +41,7 @@ export default function Home() {
             </header>
 
             <div className="mx-auto w-full max-w-md lg:mx-0 lg:w-xl lg:max-w-none">
-              <Suspense fallback={<p>Loading weather…</p>}>
+              <Suspense fallback={<p>Indlæser vejret…</p>}>
                 <WeatherWidget />
               </Suspense>
             </div>
@@ -77,7 +77,7 @@ export default function Home() {
           </article>
 
           <div className="border-t border-b border-brand-color/60 py-6 sm:py-8">
-            <Suspense fallback={<p>Henter nyheder…</p>}>
+            <Suspense fallback={<p>Indlæser nyheder…</p>}>
               <NewsFeed />
             </Suspense>
           </div>

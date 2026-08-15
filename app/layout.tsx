@@ -18,7 +18,8 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Better Weather and News App",
-  description: "Code test for Better Developers",
+  description:
+    "Dagens danske overskrifter og det aktuelle vejr i Aarhus — samlet ét sted.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

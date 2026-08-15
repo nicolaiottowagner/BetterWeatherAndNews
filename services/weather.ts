@@ -72,19 +72,19 @@ export async function getWeather(): Promise<Result<WeatherNow>> {
 
     if (!res.ok) {
       console.error("[weather] upstream returned", res.status, res.statusText);
-      return err("Weather is unavailable right now.");
+      return err("Vejret er ikke tilgængeligt lige nu.");
     }
 
     const raw: unknown = await res.json();
 
     if (!isOpenMeteoResponse(raw)) {
       console.error("[weather] unexpected payload", raw);
-      return err("Weather data could not be read.");
+      return err("Vejrdata kunne ikke læses.");
     }
 
     return ok(toWeatherNow(raw));
   } catch (cause) {
     console.error("[weather] request failed", cause);
-    return err("Weather is unavailable right now.");
+    return err("Vejret er ikke tilgængeligt lige nu.");
   }
 }

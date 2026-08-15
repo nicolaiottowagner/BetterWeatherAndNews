@@ -41,7 +41,7 @@ const GROUPS: ReadonlyArray<{
 ];
 
 const UNKNOWN: WeatherCondition = {
-  label: "Ukent vejr",
+  label: "Ukendt vejr",
   icon: "unknown",
 };
 

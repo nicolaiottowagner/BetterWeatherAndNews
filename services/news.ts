@@ -99,7 +99,7 @@ export async function getNews(query?: string): Promise<Result<NewsHeadline[]>> {
     const articles = extractArticles(mockNews);
     if (articles === null) {
       console.error("[news] bundled mock data is malformed");
-      return err("Sample headlines could not be read.");
+      return err("Eksempeloverskrifter kunne ikke læses.");
     }
     return ok(toHeadlines(articles));
   }
@@ -112,7 +112,7 @@ export async function getNews(query?: string): Promise<Result<NewsHeadline[]>> {
 
     if (!res.ok) {
       console.error("[news] upstream returned", res.status, res.statusText);
-      return err("News is unavailable right now.");
+      return err("Nyheder er ikke tilgængelige lige nu.");
     }
 
     const raw: unknown = await res.json(); // unknown, not a cast - forces guard to run.
@@ -120,12 +120,12 @@ export async function getNews(query?: string): Promise<Result<NewsHeadline[]>> {
 
     if (articles === null) {
       console.error("[news] unexpected payload", raw);
-      return err("News data could not be read.");
+      return err("Nyhedsdata kunne ikke læses.");
     }
 
     return ok(toHeadlines(articles));
   } catch (cause) {
     console.error("[news] request failed", cause);
-    return err("News is unavailable right now.");
+    return err("Nyheder er ikke tilgængelige lige nu.");
   }
 }
