@@ -45,13 +45,10 @@ export default function Home() {
 
         <a
           href="#news"
-          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70"
+          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70 motion-safe:animate-[bounce_2s_ease-in-out_infinite]"
         >
-          Checkout today&rsquo;s headlines in DK
-          <ChevronDown
-            className="size-4 motion-safe:animate-bounce"
-            aria-hidden
-          />
+          Tjek dagens overskrifter i DK
+          <ChevronDown className="size-4" aria-hidden />
         </a>
       </section>
 
@@ -61,11 +58,23 @@ export default function Home() {
           id="news"
           className="scroll-mt-6"
         >
-          <h2 id="news-heading" className="font-display text-xl sm:text-2xl">
-            Top headlines
-          </h2>
-          <Suspense fallback={<p>Loading news…</p>}>
-            <NewsFeed />
+          <article className="mb-6">
+            <h2
+              id="news-heading"
+              className="font-display text-2xl text-balance sm:text-3xl"
+            >
+              Dagens nyheder – hold dig opdateret
+            </h2>
+            <p className="mt-2 max-w-prose text-pretty opacity-70">
+              Fem danske overskrifter, opdateret hvert kvarter. Resten af
+              internettet må vente til frokostpausen.
+            </p>
+          </article>
+
+          <Suspense fallback={<p>Henter nyheder…</p>}>
+            <div className="border-t border-b border-brand-color/60">
+              <NewsFeed />
+            </div>
           </Suspense>
         </section>
       </div>
