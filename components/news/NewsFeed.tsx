@@ -1,3 +1,4 @@
+import { ErrorState } from "@/components/ui/ErrorState";
 import { hasNewsKey } from "@/services/env";
 import { getNews } from "@/services/news";
 import { NewsCard } from "./NewsCard";
@@ -6,10 +7,17 @@ export async function NewsFeed() {
   const news = await getNews();
 
   if (!news.ok) {
-    return <p>{news.error}</p>;
+    return <ErrorState message={news.error} />;
   }
+
+  // Distinct from the error path: the request worked, there is just nothing to
+  // show. Phase 5's keyword search is what makes this reachable in practice.
   if (news.data.length === 0) {
-    return <p>Ingen overskrifter lige nu.</p>;
+    return (
+      <p className="rounded-2xl border border-foreground/20 p-4 text-sm">
+        Ingen overskrifter lige nu.
+      </p>
+    );
   }
 
   return (

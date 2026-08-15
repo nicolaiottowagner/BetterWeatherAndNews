@@ -1,7 +1,10 @@
 import { Suspense } from "react";
 import { WeatherWidget } from "@/components/weather/WeatherWidget";
+import { WeatherSkeleton } from "@/components/weather/WeatherSkeleton";
 import { NewsFeed } from "@/components/news/NewsFeed";
+import { NewsSkeleton } from "@/components/news/NewsSkeleton";
 import { ChevronDown } from "lucide-react";
+
 export default function Home() {
   return (
     <main>
@@ -20,7 +23,7 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
-            <header className="lg:basis-4/5">
+            <article className="lg:basis-4/5">
               <h1
                 id="hero-heading"
                 className="font-display text-4xl leading-tight text-balance uppercase sm:text-5xl md:text-6xl lg:text-7xl"
@@ -35,13 +38,13 @@ export default function Home() {
                 </p>
 
                 <p className="text-lg text-brand-color md:text-2xl">
-                  Stay sharp · stay up-to-date.
+                  Stay sharp · Stay up-to-date.
                 </p>
               </div>
-            </header>
+            </article>
 
             <div className="mx-auto w-full max-w-md lg:mx-0 lg:w-xl lg:max-w-none">
-              <Suspense fallback={<p>Indlæser vejret…</p>}>
+              <Suspense fallback={<WeatherSkeleton />}>
                 <WeatherWidget />
               </Suspense>
             </div>
@@ -77,7 +80,7 @@ export default function Home() {
           </article>
 
           <div className="border-t border-b border-brand-color/60 py-6 sm:py-8">
-            <Suspense fallback={<p>Indlæser nyheder…</p>}>
+            <Suspense fallback={<NewsSkeleton />}>
               <NewsFeed />
             </Suspense>
           </div>

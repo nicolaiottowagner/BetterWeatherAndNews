@@ -1,3 +1,4 @@
+import { ErrorState } from "@/components/ui/ErrorState";
 import { getWeather } from "@/services/weather";
 import { WeatherIcon } from "./WeatherIcon";
 
@@ -5,7 +6,7 @@ export async function WeatherWidget() {
   const weather = await getWeather();
 
   if (!weather.ok) {
-    return <p>{weather.error}</p>;
+    return <ErrorState message={weather.error} />;
   }
 
   const { temperatureC, feelsLikeC, windSpeedKmh, condition, observedAt } =
@@ -24,7 +25,7 @@ export async function WeatherWidget() {
     .join(", ");
 
   return (
-    <div className="bg-lighorange-color rounded-2xl border border-brand-color/30 px-4 pb-4 shadow-lg shadow-brand-color/70 sm:p-6 md:pt-2">
+    <div className="rounded-2xl border border-brand-color/30 bg-lightorange-color px-4 pb-4 shadow-lg shadow-brand-color/70 sm:p-6 md:pt-2">
       <p className="pt-2 font-display text-lg">
         Aarhus · <time dateTime={observedAt}>{observedTime}</time>
       </p>
