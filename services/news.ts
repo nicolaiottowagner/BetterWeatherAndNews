@@ -114,7 +114,6 @@ export async function getNews(query?: string): Promise<Result<NewsHeadline[]>> {
     }
 
     const raw: unknown = await res.json(); // unknown, not a cast - forces guard to run.
-    console.dir(raw, { depth: null });
     const articles = extractArticles(raw);
 
     if (articles === null) {
