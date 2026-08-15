@@ -7,41 +7,44 @@ export default function Home() {
     <main>
       <section
         aria-labelledby="hero-heading"
-        className="relative flex min-h-dvh flex-col px-4 py-16 sm:px-6 md:min-h-0 md:py-24"
+        className="relative flex min-h-dvh flex-col px-4 py-16 sm:px-6 md:min-h-[80dvh] md:py-24 lg:px-12"
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-brand-color/15 to-transparent"
+          className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-brand-color/15 to-transparent lg:px-12"
         />
 
-        <div className="mx-auto w-full max-w-5xl">
-          <article>
-            <p className="font-display text-xs tracking-widest text-brand-color uppercase">
-              by Developers · for Staying up-to-date
-            </p>
-            <h1
-              id="hero-heading"
-              className="mt-4 font-display text-4xl leading-tight text-balance sm:text-5xl md:text-6xl"
-            >
-              Better Weather and News
-            </h1>
-            <p className="mt-4 max-w-prose text-pretty opacity-70 sm:text-lg">
-              Before starting your day at Better Developers behind af desk you
-              have to know what kind of weather you are missing out from +
-              checking the latest news in Denmark. Stay sharp, stay up-to-date
-            </p>
-          </article>
+        <div className="mx-auto w-full">
+          <p className="mb-4 font-display text-xs tracking-widest text-brand-color uppercase lg:text-base">
+            by a Developer · for Staying up-to-date
+          </p>
 
-          <div className="mt-8">
-            <Suspense fallback={<p>Loading weather…</p>}>
-              <WeatherWidget />
-            </Suspense>
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
+            <header className="lg:basis-4/5">
+              <h1
+                id="hero-heading"
+                className="font-display text-4xl leading-tight text-balance sm:text-5xl md:text-6xl lg:text-7xl"
+              >
+                Better Weather and News
+              </h1>
+              <p className="mt-4 max-w-prose text-pretty opacity-70 sm:text-lg md:text-xl">
+                Before starting your day at Better Developers behind af desk you
+                have to know what kind of weather you are missing out from +
+                checking the latest news in Denmark. Stay sharp, stay up-to-date
+              </p>
+            </header>
+
+            <div className="mx-auto w-full max-w-md lg:mx-0 lg:max-w-none lg:basis-2/5">
+              <Suspense fallback={<p>Loading weather…</p>}>
+                <WeatherWidget />
+              </Suspense>
+            </div>
           </div>
         </div>
 
         <a
           href="#news"
-          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70 md:hidden"
+          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70"
         >
           Today&rsquo;s headlines
           <ChevronDown

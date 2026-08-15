@@ -11,7 +11,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-brand-color: var(--brand-orange);
-  --color-lighorange-color: var(--brand-lightorange);
+  --color-lightorange-color: var(--brand-lightorange);
   --font-sans: var(--font-dm-sans);
   --font-display: var(--font-barlow);
 }
