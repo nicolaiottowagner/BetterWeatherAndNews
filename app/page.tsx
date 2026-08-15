@@ -44,9 +44,9 @@ export default function Home() {
 
         <a
           href="#news"
-          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70 lg:hidden"
+          className="mx-auto mt-auto flex w-fit items-center gap-2 pt-12 text-sm opacity-70"
         >
-          Today&rsquo;s headlines
+          Checkout today&rsquo;s headlines in DK
           <ChevronDown
             className="size-4 motion-safe:animate-bounce"
             aria-hidden

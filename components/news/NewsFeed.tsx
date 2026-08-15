@@ -14,9 +14,13 @@ export async function NewsFeed() {
 
   return (
     <>
-      {!hasNewsKey && <p>Showing sample data — no API key configured.</p>}
+      {!hasNewsKey && (
+        <p className="mt-4 inline-block rounded-full border border-brand-color/40 px-3 py-1 text-xs tracking-widest text-brand-color uppercase">
+          Sample data — no API key configured
+        </p>
+      )}
 
-      <ul>
+      <ul className="mt-4 grid gap-4">
         {news.data.map((headline) => (
           <li key={headline.id}>
             <NewsCard headline={headline} />

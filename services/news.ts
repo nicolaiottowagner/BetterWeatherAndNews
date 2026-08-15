@@ -65,7 +65,9 @@ function toHeadline(article: NewsdataArticle): NewsHeadline | null {
     title: article.title,
     description: article.description,
     url: article.link,
-    imageUrl: article.image_url,
+    imageUrl: article.image_url?.startsWith("https://")
+      ? article.image_url
+      : null,
     source: article.source_name,
     publishedAt,
   };
