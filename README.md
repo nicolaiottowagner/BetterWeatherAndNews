@@ -13,12 +13,12 @@ I have used CLAUDE for idea spec, validation and debugging. Comments to be found
 
 ## CLAUDE: Setup and run
 
-### CLAUDE: Prerequisites
+### Prerequisites
 
 - **Node.js 20.9 or newer** (required by Next.js 16). Check with `node -v`.
 - npm — ships with Node.
 
-### CLAUDE: Run it
+### Run it
 
 ```bash
 npm install
@@ -30,7 +30,7 @@ Open <http://localhost:3000>.
 **That's it — no API key or `.env` file is needed to run the app.** See below
 for what changes if you add one.
 
-### CLAUDE: Optional: live news
+### Optional: live news
 
 Weather comes from [Open-Meteo](https://open-meteo.com/), which needs no key and
 always runs live.
@@ -61,7 +61,7 @@ Restart the dev server after adding the key.
 `.env.local` is gitignored. Only `.env.example`, which holds no real value, is
 committed — no secret appears anywhere in this repository or its history.
 
-### CLAUDE: Other scripts
+### Other scripts
 
 | Command                | What it does                                   |
 | ---------------------- | ---------------------------------------------- |
@@ -73,7 +73,7 @@ committed — no secret appears anywhere in this repository or its history.
 | `npm run format`       | Prettier, writes changes                       |
 | `npm run format:check` | Prettier, check only                           |
 
-### CLAUDE: Notes
+### Notes
 
 - The UI is in Danish; the code, comments and server-side logs are in English.
 - Both sources are cached for 15 minutes to stay within the Newsdata free-tier
@@ -99,7 +99,9 @@ Trade-offs
 ## Nicolai: Time spent
 
 Thursday after the metting: Project setup and config, removed Next boilerplate, configuration of prettier, tailwind and eslint and research/idea spec: 1,5 hours
+
 Friday: API integrations and handling of data: 2,5 hours
+
 Saturday: Rest of the project features (Hero sections, news section, Header with Darkmode toggle, searchParams feature for keyword search): 8 hours
 
 Total time spent: 12 hours
