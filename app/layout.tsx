@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Barlow, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { Header } from "@/components/ui/Header";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -24,11 +26,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
+    // suppressHydrationWarning is required: next-themes sets the class on <html>
+    // via a blocking script before React hydrates, which is how the flash of
+    // wrong theme is avoided. It only suppresses one level deep.
     <html
       lang="da"
+      suppressHydrationWarning
       className={`${dmSans.variable} ${barlow.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -10,6 +10,7 @@ export default function Home() {
     <main>
       <section
         aria-labelledby="hero-heading"
+
         className="relative flex min-h-dvh flex-col px-4 py-16 sm:px-6 md:min-h-[80dvh] md:py-24 lg:min-h-[85dvh] lg:px-12"
       >
         <div
