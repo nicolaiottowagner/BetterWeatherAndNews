@@ -11,7 +11,7 @@ export async function WeatherWidget() {
   const { temperatureC, feelsLikeC, windSpeedKmh, condition, observedAt } =
     weather.data;
   const observedTime = weather.data.observedAt.slice(11, 16);
-  const observedDate = new Intl.DateTimeFormat("en-GB", {
+  const observedDate = new Intl.DateTimeFormat("da-DK", {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -51,11 +51,11 @@ export async function WeatherWidget() {
 
       <dl className="mt-4 grid grid-cols-2">
         <div>
-          <dt className="text-sm opacity-70">Feels like</dt>
+          <dt className="text-sm opacity-70">Føles som</dt>
           <dd className="tabular-nums">{Math.round(feelsLikeC)}°</dd>
         </div>
         <div>
-          <dt className="text-sm opacity-70">Wind</dt>
+          <dt className="text-sm opacity-70">Vind</dt>
           <dd className="tabular-nums">{Math.round(windSpeedKmh)} km/h</dd>
         </div>
       </dl>

@@ -11,7 +11,7 @@ export default function Home() {
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-brand-color/15 to-transparent"
+          className="pointer-events-none absolute inset-0 -z-10 bg-linear-to-t from-brand-color/30 to-transparent"
         />
 
         <div className="mx-auto w-full md:px-8 lg:px-12">
@@ -28,9 +28,10 @@ export default function Home() {
                 Better Weather and News
               </h1>
               <p className="mt-4 max-w-prose text-pretty opacity-70 sm:text-lg md:text-xl">
-                Before starting your day at Better Developers behind af desk you
-                have to know what kind of weather you are missing out from +
-                checking the latest news in Denmark. Stay sharp, stay up-to-date
+                Før du starter din dag ved din kontorplads hos Better
+                Developers, er du nødt til at vide, hvilket vejr du går glip af
+                at være ude i + at tjekke de nyeste nyheder i Danmark. Stay
+                sharp, stay up-to-date.
               </p>
             </header>
 

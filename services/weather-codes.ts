@@ -18,30 +18,30 @@ const GROUPS: ReadonlyArray<{
   codes: readonly number[];
   condition: WeatherCondition;
 }> = [
-  { codes: [0, 1], condition: { label: "Clear sky", icon: "clear" } },
-  { codes: [2], condition: { label: "Partly cloudy", icon: "partly-cloudy" } },
-  { codes: [3], condition: { label: "Overcast", icon: "overcast" } },
-  { codes: [45, 48], condition: { label: "Fog", icon: "fog" } },
+  { codes: [0, 1], condition: { label: "Klar himmel", icon: "clear" } },
+  { codes: [2], condition: { label: "Delvist skyet", icon: "partly-cloudy" } },
+  { codes: [3], condition: { label: "Overskyet", icon: "overcast" } },
+  { codes: [45, 48], condition: { label: "Tåge", icon: "fog" } },
   {
     codes: [51, 53, 55, 56, 57],
-    condition: { label: "Drizzle", icon: "drizzle" },
+    condition: { label: "Støvregn", icon: "drizzle" },
   },
   {
     codes: [61, 63, 65, 66, 67, 80, 81, 82],
-    condition: { label: "Rain", icon: "rain" },
+    condition: { label: "Regn", icon: "rain" },
   },
   {
     codes: [71, 73, 75, 77, 85, 86],
-    condition: { label: "Snow", icon: "snow" },
+    condition: { label: "Sne", icon: "snow" },
   },
   {
     codes: [95, 96, 99],
-    condition: { label: "Thunderstorm", icon: "thunderstorm" },
+    condition: { label: "Tordenvejr", icon: "thunderstorm" },
   },
 ];
 
 const UNKNOWN: WeatherCondition = {
-  label: "Unknown conditions",
+  label: "Ukent vejr",
   icon: "unknown",
 };
 
