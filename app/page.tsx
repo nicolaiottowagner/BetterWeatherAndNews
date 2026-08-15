@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <section
         aria-labelledby="hero-heading"
-        className="relative flex min-h-dvh flex-col px-4 py-16 sm:px-6 md:min-h-[80dvh] md:py-24 lg:px-12"
+        className="relative flex min-h-dvh flex-col px-4 py-16 sm:px-6 md:min-h-[80dvh] md:py-24 lg:min-h-[85dvh] lg:px-12"
       >
         <div
           aria-hidden
@@ -27,12 +27,17 @@ export default function Home() {
               >
                 Better Weather and News
               </h1>
-              <p className="mt-4 max-w-prose text-pretty opacity-70 sm:text-lg md:text-xl">
-                Før du starter din dag ved din kontorplads hos Better
-                Developers, er du nødt til at vide, hvilket vejr du går glip af
-                at være ude i + at tjekke de nyeste nyheder i Danmark. Stay
-                sharp, stay up-to-date.
-              </p>
+              <div className="mt-4 max-w-prose sm:text-lg md:text-xl">
+                <p className="pb-4 text-pretty opacity-70">
+                  Før du starter din dag ved din kontorplads hos Better
+                  Developers, er du nødt til at vide, hvilket vejr du går glip
+                  af at være ude i + at tjekke de nyeste nyheder i Danmark.
+                </p>
+
+                <p className="text-brand-color uppercase">
+                  Stay sharp · stay up-to-date.
+                </p>
+              </div>
             </header>
 
             <div className="mx-auto w-full max-w-md lg:mx-0 lg:w-xl lg:max-w-none">
@@ -58,24 +63,24 @@ export default function Home() {
           id="news"
           className="scroll-mt-6"
         >
-          <article className="mb-6">
+          <article className="mx-auto mb-8 pt-10 text-center sm:mb-10 md:pt-16">
             <h2
               id="news-heading"
-              className="font-display text-2xl text-balance sm:text-3xl"
+              className="font-display text-2xl text-balance sm:text-3xl md:text-5xl"
             >
               Dagens nyheder – hold dig opdateret
             </h2>
-            <p className="mt-2 max-w-prose text-pretty opacity-70">
+            <p className="mt-3 text-sm text-pretty opacity-70 md:text-base">
               Fem danske overskrifter, opdateret hvert kvarter. Resten af
               internettet må vente til frokostpausen.
             </p>
           </article>
 
-          <Suspense fallback={<p>Henter nyheder…</p>}>
-            <div className="border-t border-b border-brand-color/60">
+          <div className="border-t border-b border-brand-color/60 py-6 sm:py-8">
+            <Suspense fallback={<p>Henter nyheder…</p>}>
               <NewsFeed />
-            </div>
-          </Suspense>
+            </Suspense>
+          </div>
         </section>
       </div>
     </main>
