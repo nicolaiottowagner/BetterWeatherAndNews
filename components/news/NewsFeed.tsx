@@ -20,7 +20,9 @@ export async function NewsFeed() {
         </p>
       )}
 
-      <ul className="mt-4 grid gap-4">
+      {/* auto-rows-fr keeps every row the same height, so a headline with no
+          description does not produce a shorter card than its neighbours. */}
+      <ul className="mt-4 grid auto-rows-fr gap-4 lg:grid-cols-2">
         {news.data.map((headline) => (
           <li key={headline.id}>
             <NewsCard headline={headline} />

@@ -15,7 +15,7 @@ function relativeTime(iso: string): string {
 
 export function NewsCard({ headline }: { headline: NewsHeadline }) {
   return (
-    <article className="relative flex gap-4 rounded-2xl border border-foreground/10 p-4 transition-colors hover:border-brand-color/40 has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-brand-color">
+    <article className="relative flex h-full gap-4 rounded-2xl border border-brand-color/40 p-4 transition-colors has-[a:focus-visible]:outline-2 has-[a:focus-visible]:outline-brand-color pointer-fine:border-foreground/10 pointer-fine:hover:border-brand-color/40">
       {headline.imageUrl ? (
         // next/image would need remotePatterns "**" for arbitrary news domains,
         // which turns /_next/image into an open proxy. Thumbnails are small
@@ -38,8 +38,8 @@ export function NewsCard({ headline }: { headline: NewsHeadline }) {
         </div>
       )}
 
-      <div className="min-w-0">
-        <h3 className="font-display text-lg leading-snug text-balance">
+      <div className="flex min-w-0 flex-col">
+        <h3 className="line-clamp-2 font-display text-lg leading-snug">
           <a
             href={headline.url}
             target="_blank"
@@ -56,7 +56,7 @@ export function NewsCard({ headline }: { headline: NewsHeadline }) {
           </p>
         )}
 
-        <p className="mt-3 text-xs opacity-70">
+        <p className="mt-auto pt-3 text-xs opacity-70">
           {headline.source} ·{" "}
           <time dateTime={headline.publishedAt}>
             {relativeTime(headline.publishedAt)}

@@ -54,7 +54,7 @@ export default function Home() {
         </a>
       </section>
 
-      <div className="mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6">
+      <div className="mx-auto w-full px-4 pb-16 lg:px-20">
         <section
           aria-labelledby="news-heading"
           id="news"
