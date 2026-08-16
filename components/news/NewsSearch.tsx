@@ -19,14 +19,14 @@ export function NewsSearch({ defaultQuery }: { defaultQuery?: string }) {
       className="mx-auto flex max-w-md gap-2"
     >
       <label htmlFor="news-search" className="sr-only">
-        Søg i dagens overskrifter
+        Søg blandt danske nyheder
       </label>
       <input
         id="news-search"
         type="search"
         name="q"
         defaultValue={defaultQuery}
-        placeholder="Søg i dagens nyheder"
+        placeholder="Søg blandt danske nyheder"
         className="min-w-0 grow rounded-full border border-foreground/20 px-4 py-2 text-sm focus-visible:outline-2 focus-visible:outline-brand-color"
       />
       <button
