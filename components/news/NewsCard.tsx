@@ -1,7 +1,7 @@
 import { Newspaper } from "lucide-react";
 import type { NewsHeadline } from "@/services/types";
 
-const RELATIVE = new Intl.RelativeTimeFormat("en-GB", { numeric: "auto" });
+const RELATIVE = new Intl.RelativeTimeFormat("da-DK", { numeric: "auto" });
 
 function relativeTime(iso: string): string {
   const minutes = Math.round((Date.now() - new Date(iso).getTime()) / 60_000);

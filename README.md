@@ -3,6 +3,9 @@
 A single-page dashboard showing the top 5 Danish news headlines and the current
 weather in Aarhus.
 
+**Live demo: <https://betterdevelopers.nicotto.dk/>** — deployed on Vercel and
+running on live news, so you can see it without setting anything up.
+
 Built with Next.js (App Router), TypeScript and Tailwind CSS. Both data sources
 are fetched in Server Components, so no API key ever reaches the browser.
 
