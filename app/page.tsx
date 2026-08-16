@@ -4,6 +4,7 @@ import { WeatherSkeleton } from "@/components/weather/WeatherSkeleton";
 import { NewsFeed } from "@/components/news/NewsFeed";
 import { NewsSearch } from "@/components/news/NewsSearch";
 import { NewsSkeleton } from "@/components/news/NewsSkeleton";
+import { hasNewsKey } from "@/services/env";
 import { ChevronDown } from "lucide-react";
 
 export default async function Home({ searchParams }: PageProps<"/">) {
@@ -88,7 +89,7 @@ export default async function Home({ searchParams }: PageProps<"/">) {
           </article>
 
           <div className="mb-8 self-start sm:mb-10">
-            <NewsSearch defaultQuery={query} />
+            <NewsSearch defaultQuery={query} disabled={!hasNewsKey} />
           </div>
 
           <div className="border-t border-b border-brand-color/60 py-6 sm:py-8">

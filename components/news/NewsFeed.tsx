@@ -21,7 +21,7 @@ export async function NewsFeed({ query }: { query?: string }) {
   return (
     <>
       {!hasNewsKey && (
-        <p className="mt-4 inline-block rounded-full border border-brand-color/40 px-3 py-1 text-xs tracking-widest text-brand-color uppercase">
+        <p className="mt-4 inline-block rounded-full border border-brand-color px-3 py-1 text-xs tracking-widest text-brand-color uppercase">
           Eksempeldata – ingen API-nøgle
         </p>
       )}
